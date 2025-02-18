@@ -2,6 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   createBrowserRouter,
@@ -37,7 +39,8 @@ const router = createBrowserRouter([
       },
       {
         path : '/listed',
-        element : <ListedBooks></ListedBooks>
+        element : <ListedBooks></ListedBooks>,
+        loader : () => fetch('/public/booksData.json')
       },
       {
         path : '/pages',
@@ -51,5 +54,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </StrictMode>,
 )

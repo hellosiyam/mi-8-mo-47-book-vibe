@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoredReadList, addToStoredWishlist } from "../../utility/AddToDb";
 
 const BookDetail = () => {
     const { bookId } = useParams();
@@ -9,6 +10,15 @@ const BookDetail = () => {
     const book = data.find(book => book.bookId === id);
     const { bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = book
 
+    // Read-list
+    const handelMarkAsRead = (id) => {
+        addToStoredReadList(id)
+    }
+
+    // Wishlist
+    const handelToWishlist = (id) => {
+        addToStoredWishlist(id)
+    }
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 lg:mb-20 lg:mt-10">
@@ -55,8 +65,8 @@ const BookDetail = () => {
                     </div>
                 </div>
                 <div className="flex gap-4">
-                    <button className="border border-[#1313134D] text-lg text-black font-semibold px-7 py-4 rounded-lg  hover:bg-[#50B1C9] hover:text-white">Read</button>
-                    <button className="bg-[#50B1C9] text-lg text-white font-semibold px-7 py-4 rounded-lg hover:bg-sky-600 ">Wishlist</button>
+                    <button onClick = {() =>handelMarkAsRead(bookId)} className="border border-[#1313134D] text-lg text-black font-semibold px-7 py-4 rounded-lg  hover:bg-[#50B1C9] hover:text-white cursor-pointer">Mark As Read</button>
+                    <button onClick = {() =>handelToWishlist(bookId)} className="bg-[#50B1C9] text-lg text-white font-semibold px-7 py-4 rounded-lg hover:bg-sky-600 cursor-pointer">Add to Wishlist</button>
                 </div>
             </div>
         </div>
