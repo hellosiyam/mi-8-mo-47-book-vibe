@@ -3,9 +3,9 @@ import { LuUsersRound } from "react-icons/lu";
 import { MdOutlineRestorePage } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
 const ReadBook = ({ read }) => {
-    const { bookId, image, bookName, author, category, tags, rating, publisher, yearOfPublishing, totalPages } = read
+    const { image, bookName, author, category, tags, rating, publisher, yearOfPublishing, totalPages } = read
     return (
-        <div className="flex flex-col lg:flex-row gap-6 p-6 border border-[#13131326] rounded-2xl">
+        <div className="my-5 lg:my-10 flex flex-col lg:flex-row gap-6 p-6 border border-[#13131326] rounded-2xl">
             <div className="px-12 py-8 bg-[#1313130D] rounded-2xl">
                 <img className="h-[200px] mx-auto" src={image} alt={bookName} />
             </div>

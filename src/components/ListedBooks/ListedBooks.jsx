@@ -20,8 +20,7 @@ const ListedBooks = () => {
     }, [])
 
     return (
-        <div>
-            <h1 className='mb-5'>ListedBooks</h1>
+        <div className='my-5 lg:my-10'>
             <Tabs>
                 <TabList>
                     <Tab>Read Books</Tab>
@@ -29,7 +28,7 @@ const ListedBooks = () => {
                 </TabList>
 
                 <TabPanel>
-                    <h2>Books I Read: {readList.length}</h2>
+                    <h2 className='text-2xl'>Books I Read: {readList.length}</h2>
                     <div className='flex flex-col gap-6'>
                         {
                             readList.map((read, idx) => <ReadBook key={idx} read={read}></ReadBook>)
