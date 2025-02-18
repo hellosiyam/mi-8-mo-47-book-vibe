@@ -28,9 +28,9 @@ const addToStoredReadList = (id) => {
 // Add-to-Wishlist
 
 const getStoredWishlist = () => {
-    const storedListStr = localStorage.getItem('read-list');
-    if (storedListStr) {
-        const storedList = JSON.parse(storedListStr);
+    const storedWishListStr = localStorage.getItem('wishlist-list');
+    if (storedWishListStr) {
+        const storedList = JSON.parse(storedWishListStr);
         return storedList;
     }
     else{
@@ -39,14 +39,14 @@ const getStoredWishlist = () => {
 }
 
 const addToStoredWishlist = (id) => {
-    const storedList = getStoredWishlist(id);
-    if (storedList.includes(id)) {
+    const storedWishList = getStoredWishlist(id);
+    if (storedWishList.includes(id)) {
         toast.error('already exists in the Wishlist');
     }
     else{
-        storedList.push(id);
-        const storedListStr = JSON.stringify(storedList);
-        localStorage.setItem('Wishlist-list', storedListStr)
+        storedWishList.push(id);
+        const storedListStr = JSON.stringify(storedWishList);
+        localStorage.setItem('wishlist-list', storedListStr)
         toast.success('This book is added to your Wishlist.')
     }
 }
